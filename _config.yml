@@ -1,0 +1,39 @@
+# Site settings
+title: 'ls -h ./seanl'
+description: 'A place where Sean writs'
+url: 'http://shouhengli.github.com/home'
+baseurl: '/home/'
+# google_analytics: 'UA-XXXXXX-X'
+# disqus_shortname: 'your-disqus-name'
+
+author:
+  name: 'Sean Li'
+  email: sohey33@gmail.com
+  twitter_username: seanli
+  facebook_username: seanli
+  github_username:  shouhengli
+  linkedin_username:  seanli
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+gems: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
