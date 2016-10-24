@@ -3,10 +3,10 @@
   <channel>
     <title>ls -h ./seanl</title>
     <description>A place where Sean writs</description>
-    <link>http://shouhengli.github.com/home/home//</link>
-    <atom:link href="http://shouhengli.github.com/home/home//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 24 Oct 2016 23:33:10 +1100</pubDate>
-    <lastBuildDate>Mon, 24 Oct 2016 23:33:10 +1100</lastBuildDate>
+    <link>http://shouhengli.github.com/home//</link>
+    <atom:link href="http://shouhengli.github.com/home//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 24 Oct 2016 23:43:05 +1100</pubDate>
+    <lastBuildDate>Mon, 24 Oct 2016 23:43:05 +1100</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -29,8 +29,8 @@
 
 </description>
         <pubDate>Sat, 09 Jan 2016 02:04:23 +1100</pubDate>
-        <link>http://shouhengli.github.com/home/home//2016/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://shouhengli.github.com/home/home//2016/welcome-to-jekyll/</guid>
+        <link>http://shouhengli.github.com/home//2016/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://shouhengli.github.com/home//2016/welcome-to-jekyll/</guid>
         
         <category>jekyll</category>
         
@@ -59,8 +59,8 @@
 
 </description>
         <pubDate>Sat, 09 Jan 2016 02:04:23 +1100</pubDate>
-        <link>http://shouhengli.github.com/home/home//2016/first-post/</link>
-        <guid isPermaLink="true">http://shouhengli.github.com/home/home//2016/first-post/</guid>
+        <link>http://shouhengli.github.com/home//2016/first-post/</link>
+        <guid isPermaLink="true">http://shouhengli.github.com/home//2016/first-post/</guid>
         
         <category>jekyll</category>
         
