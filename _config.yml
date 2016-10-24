@@ -1,6 +1,6 @@
 # Site settings
 title: 'ls -h ./seanl'
-description: 'A place where Sean writs'
+description: 'A place where Sean writes'
 url: 'http://shouhengli.github.com/home'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
