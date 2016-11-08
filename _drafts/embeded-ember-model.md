@@ -5,10 +5,7 @@ categories: [ember]
 tags: [ember]
 ---
 
-### Background
-
-#### DB structure
-In my Ember project, I"m using MongoDB+MongoEngine to serve data. As a common usage of Non-SQL, my document has a nested structure, for example:
+I"m using MongoDB+MongoEngine to serve data in my Ember.js project (I'm using Ember Data too). My DB document has a nested structure, for example:
 
 ```json
 {
@@ -18,11 +15,11 @@ In my Ember project, I"m using MongoDB+MongoEngine to serve data. As a common us
       {
         "id": 1,
         "title": "book 1",
-	"category": "sci-fi"
+				"category": "sci-fi"
       },{
         "id": 2,
         "title": "book 2"
-	"category": "thrill"
+				"category": "thrill"
       }
     ],
     "first_name": "John",
@@ -34,10 +31,37 @@ In my Ember project, I"m using MongoDB+MongoEngine to serve data. As a common us
   }
 }
 ```
-All the IDs are a managed by our backend code and is unique within the parent scope, e.g. a book's ID `1` is unique within the author, but other authors may have a different book with the same ID `1`. The IDs are generated not just for the convinience of frontend, but also for the usage of backend computation engine.
+In this post, I'll explain how to map the structure with embeded model, and then optimize network traffic using lazy loading and making use of Ember Data's identity map (store cache).
 
-#### Ember model
-And here is how my Ember models look like:
+#### One model for all
+Intuitively, a model which exactly maps the DB structure seems to be the way to go.
+
+```javascript
+// author.js
+import DS from "ember-data";
+
+export default DS.Model.extend({
+  books:DS.attr(),
+  first_name: DS.attr('string'),
+  last_name: DS.hasMany('datum', {async: false}),
+  meta: DS.attr()
+});
+```
+
+#### Fragment model
+
+```javascript
+// book.js
+import DS from "ember-data";
+
+export default DS.Model.extend({
+  title:DS.attr('string'),
+  category:DS.attr('string')
+});
+```
+
+#### Use embedded models
+
 
 ```javascript
 // author.js
@@ -61,7 +85,9 @@ export default DS.Model.extend({
 });
 ```
 
-```
+#### Make use of store cache
+
+All the IDs are a managed by our backend code and is unique within the parent scope, e.g. a book's ID `1` is unique within the author, but other authors may have a different book with the same ID `1`. The IDs are generated not just for the convinience of frontend, but also for the usage of backend computation engine.
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 

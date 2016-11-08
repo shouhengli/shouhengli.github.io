@@ -1,5 +1,5 @@
 # Site settings
-title: 'ls -h ./seanl'
+title: 'ls -h seanl'
 description: 'A place where Sean writes'
 url: 'http://shouhengli.github.com/home'
 baseurl: '/'
