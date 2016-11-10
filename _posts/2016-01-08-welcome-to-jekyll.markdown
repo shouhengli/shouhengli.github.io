@@ -1,7 +1,7 @@
 ---
 title:  "Welcome!"
 date:   2016-01-08 15:04:23
-categories: [jekyll]
+categories: [general]
 comments: false`
 tags: [general]
 ---
