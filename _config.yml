@@ -1,6 +1,6 @@
 # Site settings
-title: 'ls -h SeanLi'
-description: 'A place where Sean writes'
+title: 'ls -h Sean'
+description: 'A place where I write about my learnings'
 url: 'http://shouhengli.github.com/home'
 baseurl: '/'
 google_analytics: 'UA-87148833-1'
