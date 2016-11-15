@@ -52,7 +52,7 @@ export default DS.Model.extend({
   meta: DS.attr()
 });
 ```
-This would work only if you have a very few number of routes. However, if you have a complex routing structure like I do, this would not work. Having a massive model like this means:
+This would work only if I only have a very few number of routes. Unluckily I don't. Having a massive model like this means:
 
 1. You can only persist one model.
 
@@ -60,7 +60,7 @@ This would work only if you have a very few number of routes. However, if you ha
 
 2. All the routes/pages can only have the same model.
 
-   This is simply not going to work. For example, if you have a nested route `author/{id}/books/{id}`, and you can access the *category* field in the handlebar in the way of `model.books.{index}.category`, the code will look so bad that it will rot quickly, not to mention the non-trival work to track and keep `{index}` in sync.
+   For example, I have a nested route `author/{id}/books/{id}`, I can access the *category* field in the handlebar in the way of `model.books.{index}.category`, no problem. But the code looks bad and fragile, and I'm pretty sure it will rot quickly, not to mention the non-trival work to track and keep `{index}` in sync.
 
 3. No field definition to reply on.
 
@@ -72,7 +72,7 @@ The Ember community has provided an Addon for using ID-less document fragments a
 
 > This package provides support for sub-models that can be treated much like belongsTo and hasMany relationships are, but whose persistence is managed completely through the parent object.
 
-[Ember Data Model Fragments][model-fragments] is a mature library with a comprehensive documentation with exmaples. It basically allows you to use a fragment of a model as another model. By using it, the *author* can be defined as:
+[Ember Data Model Fragments][model-fragments] is a mature library with a comprehensive documentation with exmaples. It basically allows me to use a fragment of a model as another model. By using it, the *author* can be defined as:
 
 ```javascript
 // model/author.js
@@ -124,7 +124,7 @@ Yes, in the library's description:
 
 It means that although I can fragments like normal models, I can't persist them through Ember Data, in another word, `fragment.save()` or `fragment.destroyRecord()` would not work.
 
-Luckily, not being able to persist fragments is definitely not the end of the world, it can be workarounded. For instance, you can always use `this.controllerFor('author').get('model').save()`, or the way I prefer, bubble the action up to the parent route:
+Luckily, not being able to persist fragments is definitely not the end of the world, it can be workarounded. For instance, I can inject the parent controll like `this.controllerFor('author').get('model').save()`, or the way I prefer, bubble the action up to the parent route:
 
 ```javascript
 // controller/books.js
@@ -209,7 +209,8 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
   }
 });
 ```
-This approach allows me to pass the nested models around, take advantage of caching as well as perform CRUD operations on each models individually without worrying about going out of sync.
+This approach allows me to pass the nested models around, take advantage of caching as well as perform CRUD operations on each models individually without worrying about going out of sync. Miguel Camba has a great post on 
+[Optimizing APIs With Ember-data and EmbeddedRecordsMixin][optimizing-apit-with-ember-data], highly recommended.
 
 It is recommended by Ember API and well documented at [here][embed-record-mixin], but why didn't I use it at the first place?
 
@@ -234,7 +235,7 @@ There are still rooms to improve. One thing I am planning to do is to get rid of
   }
 }
 ```
-You may find this is nothing like what our MongoDB document structure is, but if you think about it, does payload really have to reflect DB structure? Certainly not, in fact, some information sensitive places even consider it as a secruity pitfall. Also, one of the advantages of having a multi-layer architecture is the flexibility to transform DB records.
+You may find this is nothing like what our MongoDB document structure is, but think about it, does payload really have to reflect DB structure? Certainly not, in fact, some information sensitive places even consider it as a secruity pitfall. Also, one of the advantages of having a multi-layer architecture is the flexibility to transform DB records.
 
 Doing this will certainly require some extra work to transform data format on the server side. Luckily, both MongoEngine and pyMongo have a good support for MongoDB projection query. By leveraging the power, it shouldn't be a task that is too hard to do.
 
@@ -245,3 +246,4 @@ This is my very first post on Ember.js. I like Ember and I believe the Ember con
 [embed-record-mixin]:	http://emberjs.com/api/data/classes/DS.EmbeddedRecordsMixin.html 
 [identity-map]:		https://haagen-software.no/blog/post/2014_11_07_understanding_ember_data
 [django_rest_framework_mongoengine]:	https://github.com/umutbozkurt/django-rest-framework-mongoengine
+[optimizing-apit-with-ember-data]:	http://miguelcamba.com/blog/2015/03/15/optimizing-apis-with-ember-data-and-embeddedrecordsmixin/
