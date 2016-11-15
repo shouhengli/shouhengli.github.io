@@ -9,10 +9,10 @@ disqus_shortname: 'ls-l-seanli'
 author:
   name: 'Sean Li'
   email: sohey33@gmail.com
-  twitter_username: seanli
+  # twitter_username: seanli
   # facebook_username: seanli
   github_username:  shouhengli
-  linkedin_username:  seanli
+  linkedin_username: sean-li-5bb07771
 
 defaults:
   -
