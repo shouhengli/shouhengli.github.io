@@ -1,7 +1,7 @@
 # Site settings
 title: 'ls -h Sean'
 description: 'A place where I write about my learnings'
-url: 'http://shouhengli.github.com/home'
+url: 'http://shouhengli.github.com'
 baseurl: '/'
 google_analytics: 'UA-87148833-1'
 disqus_shortname: 'ls-l-seanli'
